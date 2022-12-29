@@ -4,7 +4,7 @@ def check_win(board, player_sym1, player_sym2):
     :param board:Nested list
     :param player_sym1:char
     :param player_sym2: char
-    :return:Nothing
+    :return:player_sym1 or player_sym2
     """
 
     n = len(board)
@@ -31,11 +31,11 @@ def check_win(board, player_sym1, player_sym2):
 
 
 if __name__ == '__main__':
-    p1 = [['o', 'x', 'o'], ['o', 'o', 'x'], ['o', 'o', 'x']]
+    p1 = [['o', 'x', 'x'], ['x', 'o', 'x'], ['o', 'o', 'x']]
     result = check_win(p1, 'x', 'o')
     if result == 'o':
         print("o win")
     elif result == 'x':
         print("x win")
-    elif result is None:
+    elif result == None:
         print("Match draw!")
