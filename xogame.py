@@ -2,7 +2,7 @@ X_SYM = 'X'
 O_SYM = 'o'
 
 
-def game_main:
+def game_main():
     board = get_board()
 
     player = X_SYM      # X is first player
