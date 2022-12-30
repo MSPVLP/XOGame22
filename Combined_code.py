@@ -48,10 +48,15 @@ def get_board():
 
 def get_move(player):
     print("This is", player, "turn.")
-    row = int(input("Enter a row:"))
-    column = int(input("Enter a column:"))
-    move = (row, column)
-    return move
+    while True:
+        try:
+            row = int(input("Enter a row:"))
+            column = int(input("Enter a column:"))
+            move = (row, column)
+            return move
+            break
+        except ValueError:
+            print("Enter valid number")
 
 
 def make_move(board, move, sym):
@@ -60,7 +65,7 @@ def make_move(board, move, sym):
     elif is_already_picked(board, move, sym):
         return False
     else:
-        if is_board_filled(board):
+        if is_board_not_filled(board):
             row = move[0]
             column = move[1]
             board[row][column] = sym
@@ -87,10 +92,11 @@ def out_of_range(board, move, sym):
         return False
 
 
-def is_board_filled(board):
+def is_board_not_filled(board):
     """
+    This function is used to check whether a board is filled or not.
     :param board: nested list
-    :return: check whether the board is filled or not
+    :return: bool - It returns True if the board is not filled. Otherwise returns False.
     """
     is_filled = False
     for i in range(3):
@@ -102,11 +108,11 @@ def is_board_filled(board):
 
 def check_win(board, player_sym1, player_sym2):
     """
-    This function used to display win a player
+    This function is used to display a player result.
     :param board:Nested list
     :param player_sym1:char
     :param player_sym2: char
-    :return:player_sym1 or player_sym2
+    :return:char - player_sym1 or player_sym2
     """
 
     n = len(board)
@@ -134,9 +140,11 @@ def check_win(board, player_sym1, player_sym2):
 
 def print_board(board):
     n = len(board)
+    print('----+---+---')
     for i in range(n):
         print('|', board[i][0], '|', board[i][1], '|', board[i][2], '|')
-        print('_____________')
+        print('----+---+---')
 
 
-game_main()
+if __name__ == "__main__":
+    game_main()
