@@ -2,7 +2,8 @@
 def is_board_filled(board):
     """
     :param board: nested list
-    :return: check whether the board is filled or not
+    :return: It returns True if board not filled
+             Returns False if board filled
     """
     is_filled = False
     for i in range(3):
