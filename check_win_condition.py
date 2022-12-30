@@ -1,3 +1,6 @@
+X_SYM = "X"
+O_SYM = "O"
+Match = "False"
 def check_win(board, player_sym1, player_sym2):
     """
     This function used to display win a player
@@ -30,12 +33,27 @@ def check_win(board, player_sym1, player_sym2):
         return player_sym2
 
 
+def test_check_win():
+    assert check_win([['O', 'X', 'X'], ['X', 'O', 'X'], ['O', 'O', 'X']], 'X', 'O') == X_SYM
+    assert check_win([['X', 'O', 'O'], ['X', 'X', 'X'], ['O', 'X', 'O']], 'O', 'X') == X_SYM
+    assert check_win([['O', 'X', 'O'], ['X', 'O', 'X'], ['O', 'X', 'X']], 'X', 'O') == O_SYM
+    assert check_win([['O', 'X', 'O'], ['O', 'X', 'X'], ['X', 'X', 'O']], 'O', 'X') == X_SYM
+    assert check_win([['O', 'X', 'X'], ['O', 'O', 'X'], ['X', 'X', 'X']], 'X', 'O') == X_SYM
+    assert check_win([['O', 'O', 'X'], ['X', 'O', 'O'], ['X', 'O', 'X']], 'X', 'O') == O_SYM
+    assert check_win([['O', 'X', 'X'], ['O', 'O', 'X'], ['O', 'O', 'O']], 'X', 'O') == O_SYM
+    assert check_win([['O', 'X', 'O'], ['X', 'O', 'O'], ['X', 'X', 'O']], 'X', 'O') == O_SYM
+    assert check_win([['X', 'O', 'O'], ['X', 'X', 'O'], ['X', 'O', 'X']], 'X', 'O') == X_SYM
+    assert check_win([['X', 'X', 'X'], ['O', 'O', 'X'], ['X', '0', 'X']], 'X', 'O') == X_SYM
+    assert check_win([['X', 'O', 'O'], ['X', 'X', 'O'], ['O', 'O', 'X']], 'X', 'O') == X_SYM
+    assert check_win([['O', 'X', 'X'], ['O', 'O', 'X'], ['X', 'O', 'O']], 'O', 'X') == O_SYM
+    assert check_win([['O', 'O', 'X'], ['O', 'X', 'X'], ['O', 'X', 'O']], 'X', 'O') == O_SYM
+    assert check_win([['O', 'X', 'X'], ['O', 'X', 'O'], ['X', 'O', 'X']], 'O', 'X') == X_SYM
+    assert check_win([['X', 'O', 'X'], ['O', 'O', 'O'], ['O', 'X', 'O']], 'X', 'O') == O_SYM
+
+    print("Board is Validate")
+
+
 if __name__ == '__main__':
-    p1 = [['o', 'x', 'x'], ['x', 'o', 'x'], ['o', 'o', 'x']]
-    result = check_win(p1, 'x', 'o')
-    if result == 'o':
-        print("o win")
-    elif result == 'x':
-        print("x win")
-    elif result == None:
-        print("Match draw!")
+        test_check_win()
+
+
