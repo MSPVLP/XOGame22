@@ -14,15 +14,15 @@ def is_board_filled(board):
 
 
 def test_board_filled():
-    board1 = [["X", "O", "X"], ["X", "O", "X"], ["X", "O", "O"]]
+    board1 = [["X", "O", "X"], ["X", "O", "X"], ["X", "O", "x"]]
     assert is_board_filled(board1) == False
-    board2 = [["X", " ", "X"], ["X", "O", "X"], ["X", "O", "O"]]
+    board2 = [["X", " ", "X"], ["X", "O", "X"], ["X", "O", "X"]]
     assert is_board_filled(board2) == True
-    board3 = [["X", "O", " "], ["X", "O", "X"], ["X", "O", "O"]]
+    board3 = [["X", "O", " "], ["X", "O", "X"], ["X", "O", "X"]]
     assert is_board_filled(board3) == True
-    board4 = [["X", "O", "X"], ["X", "O", " "], ["X", "O", "O"]]
+    board4 = [["X", "O", "X"], ["X", "O", " "], ["X", "O", "X"]]
     assert is_board_filled(board4) == True
-    board5 = [["X", " ", "X"], ["X", "O", "X"], ["X", "O", "O"]]
+    board5 = [["X", " ", "X"], ["X", "O", "X"], ["X", "O", "X"]]
     assert is_board_filled(board5) == True
     print("Test passed")
 
